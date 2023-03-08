@@ -1,0 +1,307 @@
+<!-- <div> -->
+
+<div class="yellow">
+</div>
+<div class="gray">
+</div>
+
+<div class="d-flex container text-center">
+    <div class="col-5 img mt-5"><img width="100%" src="../../assets/imgs/florian-olivo-5Fzlfb0GR1E-unsplash.jpg" alt="">
+    </div>
+    <div class="col-7 links text-center mt-5">
+        <h1 class="mt-5">Create Account As :</h1>
+        <div class=" mt-5 d-grid gap-2 col-6 mx-auto bg-secondary p-5 border border-3 rounded ">
+            <button (click)="openModalRegistration()" type="button" class="btn btn-dark">Registration</button>
+            <button (click)="openModalLogin()" type="button" class="btn btn-dark"> Log in</button>
+        </div>
+    </div>
+</div>
+
+<!-- </div> -->
+<!------------------------------ registration ------------------------------------------------------>
+
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-secondary">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Welcome</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-outline-secondary" (click)="OpenCustomerForm()">Customer</button>
+                <button type="button" class="btn btn-outline-secondary" (click)="OpenMaintenanceForm()">Maintenance
+                    Center</button>
+                <button type="button" class="btn btn-outline-secondary" (click)="OpenMerchantForm()">Merchant</button>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------------------------------- customerModal ----------------------------------->
+
+<div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="customerForm" (ngSubmit)="submitCustomerForm()">
+                    <input type="text" value="user" hidden formControlName="user">
+                    <div class="mb-3">
+                        <label for="customerName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="customerName" formControlName="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="customerEmail" aria-describedby="emailHelp"
+                            formControlName="email">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerPass" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="customerPass" formControlName="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerPhone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="customerPhone" formControlName="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerAddres" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="customerAddres" formControlName="address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="customerCity" formControlName="city">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="customergendermale"
+                            formControlName="gender">
+                        <label class="form-check-label" for="customergendermale">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="customergenderfemale"
+                            formControlName="gender">
+                        <label class="form-check-label" for="customergenderfemale">
+                            Female
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ------------------------maintenanceModal---------------------------------- -->
+<div class="modal fade" id="maintenanceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="maintenanceForm" (ngSubmit)="submitMaintenanceForm()">
+                    <input type="text" value="maintenance" hidden formControlName="maintenance">
+
+                    <div class="mb-3">
+                        <label for="maintenanceName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="maintenanceName" formControlName="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="maintenanceEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="maintenanceEmail" aria-describedby="emailHelp"
+                            formControlName="email">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="maintenancePass" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="maintenancePass" formControlName="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="maintenancePhone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="maintenancePhone" formControlName="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="maintenanceAddres" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="maintenanceAddres" formControlName="address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="maintenanceCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="maintenanceCity" formControlName="city">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="maintenancegendermale"
+                            formControlName="gender">
+                        <label class="form-check-label" for="maintenancegendermale">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="maintenancegenderfemale"
+                            formControlName="gender">
+                        <label class="form-check-label" for="maintenancegenderfemale">
+                            Female
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="maintenanceid" class="form-label">National ID</label>
+                        <input type="text" class="form-control" id="maintenanceid" formControlName="idmc">
+
+                        <label for="idmcfront" class="form-label">ID Front</label>
+                        <input class="form-control" type="file" id="idmcfront"formControlName="idmcfront">
+                        <label for="idmcback" class="form-label">ID Back</label>
+                        <input class="form-control" type="file" id="idmcback"formControlName="idmcback">
+                    </div>
+                    <div class="mb-3">
+                        <div> <label for="" class="form-label">Commercial Record</label></div>
+                        <label for="crmcfront" class="form-label">Front</label>
+                        <input class="form-control" type="file" id="crmcfront"formControlName="crmcfront">
+                        <label for="cmmcback" class="form-label">Back</label>
+                        <input class="form-control" type="file" id="cmmcback"formControlName="crmcback">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ------------------------merchantModal---------------------------------- -->
+
+</div>
+<div class="modal fade" id="merchantModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="merchantForm" (ngSubmit)="submitMerchantForm()">
+                    <input type="text" value="merchant" hidden formControlName="merchant">
+
+                    <div class="mb-3">
+                        <label for="merchantName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="merchanteName" formControlName="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="merchantEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="merchantEmail" aria-describedby="emailHelp"
+                            formControlName="email">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="merchantPass" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="merchantPass" formControlName="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="merchantPhone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="merchantPhone" formControlName="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="merchantAddres" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="merchantAddres" formControlName="address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="merchantCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="merchantCity" formControlName="city">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="merchantendermale"
+                            formControlName="gender">
+                        <label class="form-check-label" for="merchantgendermale">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="merchantgenderfemale"
+                            formControlName="gender">
+                        <label class="form-check-label" for="merchantgenderfemale">
+                            Female
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="merchantid" class="form-label">National ID</label>
+                        <input type="text" class="form-control" id="merchantid" formControlName="idm">
+
+                        <label for="idmfront" class="form-label">ID Front</label>
+                        <input class="form-control" type="file" id="idmfront"formControlName="idmfront">
+                        <label for="idmback" class="form-label">ID Back</label>
+                        <input class="form-control" type="file" id="idmback"formControlName="idmback">
+                    </div>
+                    <div class="mb-3">
+                        <div> <label for="" class="form-label">Commercial Record</label></div>
+                        <label for="crmfront" class="form-label">Front</label>
+                        <input class="form-control" type="file" id="crmfront"formControlName="crmfront">
+                        <label for="cmrcback" class="form-label">Back</label>
+                        <input class="form-control" type="file" id="crmback"formControlName="crmback">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!------------------------------ pop login ----------------------------------->
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+
+                <form [formGroup]="loginForm" (ngSubmit)="submitloginForm()">
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail4" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp"
+                            formControlName="email">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4"
+                            formControlName="password">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
